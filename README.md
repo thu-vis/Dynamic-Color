@@ -4,14 +4,18 @@ https://github.com/Dynamic-Color/Dynamic-Color/assets/165145493/99698358-9e72-4d
 
 =======================================
 
-Codes for color assignment algorithm described in our paper ["Dynamic Color Assignment for Hierarchical Data"](https://xxxx).
+Codes for dynamic color assignment described in our paper ["Dynamic Color Assignment for Hierarchical Data"](https://xxxx).
 
 ## Code Implementation
 We provide two versions of code implementation:
+
 - C++/Python version, written in C++ and supported for Python invocation via pybind11. We recommend this version as it allows for acceleration using OpenMP to quickly obtain the desired colors.
 You can refer to the [C++ version](https://github.com/Dynamic-Color/Dynamic-Color/tree/main/C%2B%2B%20version) folder for more details.
 - JavaScript version, written in JavaScript and based on d3.js for color generation support, is more suitable for direct use in front-end scenarios.
 You can refer to the [JavaScript version](https://github.com/Dynamic-Color/Dynamic-Color/tree/main/JavaScirpt%20version) folder for more details.
+
+Based on our code implementation, high-quality color assignment results for hierarchical data can be generated, which simultaneously considers color discriminability, harmony, and the spatial distribution of data.
+![图片](https://github.com/Dynamic-Color/Dynamic-Color/assets/165145493/8be030fa-6cc3-43c4-942e-7d04e369c210)
 
 ## Note
 Tested on Linux with Python 3.8. 
@@ -21,4 +25,5 @@ Tested on Linux with Python 3.8.
 ## Contact
 If you have any problem with our code, feel free to contact
 - colordynamic0@gmail.com
+
 or describe your problem in Issues.
