@@ -1,4 +1,4 @@
-# Dynamic Color Assignment Algorithm
+# Dynamic Color Assignment for Hierarchical Data
 
 https://github.com/Dynamic-Color/Dynamic-Color/assets/165145493/99698358-9e72-4df0-be9c-83a5692b2911
 
@@ -15,10 +15,10 @@ You can refer to the [JavaScript version](https://github.com/Dynamic-Color/Dynam
 
 ## Note
 Tested on Linux with Python 3.8. 
-- C++/Python version is implemented based on cmake to facilitate cross-platform migration. You can modify the CMakeLists.txt according to the corresponding operating system for compilation. 
+- C++/Python version is implemented based on CMake to facilitate cross-platform migration. You can modify the CMakeLists.txt according to the corresponding operating system for compilation. 
 - JavaScript version is implemented based on Node.js. Please update the Node.js version if it cannot be used.
 
 ## Contact
-If you have any problem about our code, feel free to contact
+If you have any problem with our code, feel free to contact
 - colordynamic0@gmail.com
 or describe your problem in Issues.
