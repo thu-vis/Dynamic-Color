@@ -32,3 +32,77 @@ You can use it like a library in Python under version 3.8.
 **Very important: Please place the "static" folder in the root directory of the calling environment to generate results quickly.**
 You can download it from Google Drive:
 https://drive.google.com/drive/folders/1XtNUwa650u4l0qPGOCvZ6DbmdTABvz8M?usp=drive_link.
+
+
+### Code use
+We provide four functions: findPalette, findPaletteForScatter, findPaletteForLine, and findPaletteForGrid, which respectively generate colorings for scenarios including non-distribution, scatter plots, PCP, and grid visualizations. Specific parameters can be viewed using the help function in Python or by referring to src/dynamic_color.cpp(as follow).
+```cpp
+PYBIND11_MODULE(dynamic_color, m)
+{
+    preloadFunction();
+    m.doc() = "dynamic_color";
+
+    py::list hue_range = py::list();
+    hue_range.append(py::int_(0));
+    hue_range.append(py::int_(360));
+
+    m.def("findPalette", &findPaletteGlobal, "Find global palette",
+          py::arg_v("rgb_colors", py::list(), "List of RGB colors in the range [0, 1]，[[0,0,1]] or [] when initializing"),
+          py::arg_v("palette_sizes", py::list(), "List representing the number of children nodes under each parent node, such as [5]"),
+          py::arg_v("hue_range", hue_range, "Hue range, default [0, 360]"),
+          py::arg_v("tradeoff", 1.0, "Tradeoff between intra-cluster and inter-cluster distances, default 1.0"),
+          py::arg_v("iter_num", 48, "Number of iterations for the SA internal loop, default 48"),
+          py::arg_v("global_dec", 0.99, "Global decay rate for SA, default 0.99"),
+          py::arg_v("thread", 12, "Number of threads for OpenMP parallelization, default 12"));
+
+    m.def("findPaletteForScatter",
+          &findPaletteGlobalScatter,
+          "A global color is generated for scatter data.",
+          py::arg_v("rgb_colors", py::list(), "List of RGB colors in the range [0, 1], [[]] when initializing"),
+          py::arg_v("palette_sizes", py::list(), "List representing the number of children nodes under each parent node, such as [5]"),
+          py::arg_v("data", py::list(), "Line list, such as [[0, 0], [1, 1], [2, 2]]"),
+          py::arg_v("labels", py::list(), "Array recording the category of each sample."),
+          py::arg_v("label_list", py::list(), "Array recording all labels in the same order as before"),
+          py::arg_v("similarity", py::list(), "A matrix of size n*n, recording the similarity of each category"),
+          py::arg_v("hue_range", hue_range, "Hue range, default [0, 360]"),
+          py::arg_v("mode", 1, "Mode parameter, 0 for discrimination, 1 for similarity, default 1"),
+          py::arg_v("tradeoff", 1.0, "Tradeoff between intra-cluster and inter-cluster distances, default 1.0"),
+          py::arg_v("iter_num", 48, "Number of iterations for the SA internal loop, default 48"),
+          py::arg_v("global_dec", 0.99, "Global decay rate for SA, default 0.99"),
+          py::arg_v("thread", 12, "Number of threads for OpenMP parallelization, default 12"));
+
+    m.def("findPaletteForline",
+          &findPaletteGlobalLine,
+          "A global color is generated for line data.",
+          py::arg_v("rgb_colors", py::list(), "List of RGB colors in the range [0, 1], [[]] when initializing"),
+          py::arg_v("palette_sizes", py::list(), "List representing the number of children nodes under each parent node, such as [5]"),
+          py::arg_v("data", py::list(), "Line list, such as [[0, 0], [1, 1], [2, 2]]"),
+          py::arg_v("labels", py::list(), "Array recording the category of each sample."),
+          py::arg_v("label_list", py::list(), "Array recording all labels in the same order as before"),
+          py::arg_v("similarity", py::list(), "A matrix of size n*n, recording the similarity of each category"),
+          py::arg_v("hue_range", hue_range, "Hue range, default [0, 360]"),
+          py::arg_v("mode", 1, "Mode parameter, 0 for discrimination, 1 for similarity, default 1"),
+          py::arg_v("tradeoff", 1.0, "Tradeoff between intra-cluster and inter-cluster distances, default 1.0"),
+          py::arg_v("iter_num", 48, "Number of iterations for the SA internal loop, default 48"),
+          py::arg_v("global_dec", 0.99, "Global decay rate for SA, default 0.99"),
+          py::arg_v("thread", 12, "Number of threads for OpenMP parallelization, default 12"));
+
+    m.def("findPaletteForGrid",
+          &findPaletteGlobalGrid,
+          "Find global palette for grid",
+          py::arg_v("rgb_colors", py::list(), "List of RGB colors in the range [0, 1], [[]] when initializing"),
+          py::arg_v("palette_sizes", py::list(), "List representing the number of children nodes under each parent node, such as [5]"),
+          py::arg_v("width", py::int_(), "Width of the grid"),
+          py::arg_v("height", py::int_(), "Height of the grid"),
+          py::arg_v("data", py::list(), "Array recording the index of each element placed in the grid"),
+          py::arg_v("labels", py::list(), "Array recording the category of each index, if it exceeds then it represents an empty grid"),
+          py::arg_v("label_list", py::list(), "Array recording all labels in the same order as before"),
+          py::arg_v("similarity", py::list(), "A matrix of size n*n, recording the similarity of each category"),
+          py::arg_v("hue_range", hue_range, "Hue range, default [0, 360]"),
+          py::arg_v("mode", 1, "Mode parameter, 0 for discrimination, 1 for similarity, default 1"),
+          py::arg_v("tradeoff", 1.0, "Tradeoff between intra-cluster and inter-cluster distances, default 1.0"),
+          py::arg_v("iter_num", 48, "Number of iterations for the SA internal loop, default 48"),
+          py::arg_v("global_dec", 0.99, "Global decay rate for SA, default 0.99"),
+          py::arg_v("thread", 12, "Number of threads for OpenMP parallelization, default 12"));
+}
+```
