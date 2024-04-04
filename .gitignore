@@ -2,7 +2,6 @@
 build
 _build
 _test
-pybind11
 # baselines
 baselines/
 case
