@@ -34,6 +34,6 @@ Tested on Linux with Python 3.8.
 
 ## Contact
 If you have any problem with our code, feel free to contact
-- colordynamic0@gmail.com
+- jiashu0717c@gmail.com
 
 or describe your problem in Issues.
