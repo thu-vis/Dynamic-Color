@@ -10,7 +10,7 @@ This example is similar to Figure 7 in the paper but includes more categories, m
 - The third example, provided in example_2.ipynb, showcases a case of hierarchical color assignment for grid visualization. This example is similar to Figure 1 and Figure 8 in the paper but is more complex. The results for ours-s are quite good,
 but in ours-d, the yellow and green are somewhat confused. This is a future problem because the colors of the parent categories are too far apart, which is sometimes unavoidable.
 
-- It is worth mentioning that here we simply provide the visualizations, which differ from those in the paper. 
+It is worth mentioning that here we simply provide the visualizations, which differ from those in the paper. 
 In the paper, the visualizations include bold white borders for each class, which helps to highlight the categories. This is a common technique used in grid visualization.
 
-- Finally, it should be noted that our method inherently possesses some degree of randomness, which is unavoidable. However, better results can be achieved through multiple experiments.
+Finally, it should be noted that our method inherently possesses some degree of randomness, which is unavoidable. However, better results can be achieved through multiple experiments.
