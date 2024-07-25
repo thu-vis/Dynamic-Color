@@ -4,7 +4,7 @@ https://github.com/Dynamic-Color/Dynamic-Color/assets/165145493/99698358-9e72-4d
 
 =======================================
 
-Codes for dynamic color assignment described in our paper ["Dynamic Color Assignment for Hierarchical Data"](https://xxxx).
+Codes for dynamic color assignment described in our paper ["Dynamic Color Assignment for Hierarchical Data"](https://arxiv.org/abs/2407.14742).
 
 ## Code Implementation
 We provide two versions of code implementation:
