@@ -23,7 +23,7 @@ constexpr double Scope::chroma_scope_default[2];
 constexpr double Scope::hue_scope_default[2];
 constexpr double Scope::lumi_scope_default[2];
 
-const double center_range[2] = {50, 80}; // [45, 80] is also ok, check the environment
+const double center_range[2] = {45, 80}; // check the environment
 const double relax = 1.0;                // Set the strength of pareto specific preferences
 const double harg = 1.0;                 // Harmony score weight (hue templates with l-c)
 

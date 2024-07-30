@@ -98,6 +98,14 @@ inline Color disturbColorInScope(const Color &color, const Scope &scope, const d
         else
             h = 115;
     }
+    
+    // ToDo: personal perference
+    // such as lighter colors with green color
+    // here is an example with little change, which will appear more probs
+    if (h > 110 && h < 150) {
+        c += 5;
+        l += 5;
+    }
 
     return Color(h, c, l);
 }
