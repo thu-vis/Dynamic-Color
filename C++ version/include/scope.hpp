@@ -11,9 +11,9 @@ class Scope
 {
 public:
     static constexpr double hue_scope_default[2] = {0, 360};
-    static constexpr double chroma_scope_default[2] = {40, 85};
+    static constexpr double chroma_scope_default[2] = {55, 85};
     static constexpr double lumi_scope_default[2] = {55, 85}; 
-    // If you intend to use it in a PDF document or on a darker scree, we recommend a higher lightness range, such as [55, 85]
+    // If you intend to use it in a PDF document or on a darker scree, we recommend a higher lightness/chroma range, such as [55, 85]
     // If you intend to use it for data visualization on a brighter screen, we recommend a more looser range, such as [40, 85] which is the same with our paper.
 
     double hue_scope[2];
