@@ -20,6 +20,7 @@ public:
     double chroma_scope[2];
     double lumi_scope[2];
     bool all_hue = false;
+    int margin = 5; // little margin to avoid value < 40 when disturb
 
     Scope() noexcept
     {
@@ -76,8 +77,8 @@ inline Color disturbColorInScope(const Color &color, const Scope &scope, const d
 {
     // range: array of 3 for h c and l
     double h = color.hue, c = color.chroma, l = color.lab_color[0];
-    c = randomDouble(std::max(c - range[1], scope.chroma_scope[0]), std::min(c + range[1], scope.chroma_scope[1]));
-    l = randomDouble(std::max(l - range[2], scope.lumi_scope[0]), std::min(l + range[2], scope.lumi_scope[1]));
+    c = randomDouble(std::max(c - range[1], scope.chroma_scope[0] + margin), std::min(c + range[1] + margin, scope.chroma_scope[1]));
+    l = randomDouble(std::max(l - range[2], scope.lumi_scope[0] + margin), std::min(l + range[2] + margin, scope.lumi_scope[1]));
     if (!scope.all_hue)
     {
         h = randomDouble(std::max(h - range[0], scope.hue_scope[0]), std::min(h + range[0], scope.hue_scope[1]));
