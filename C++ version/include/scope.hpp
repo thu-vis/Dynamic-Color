@@ -20,7 +20,7 @@ public:
     double chroma_scope[2];
     double lumi_scope[2];
     bool all_hue = false;
-    double margin = 10.0; // add margin to avoid overflow in disturb
+    double margin = 5.0; // add margin to avoid overflow in disturb
     // we often found color overflow range when in boundary (when hcl to rgb)
     // so we add margin which only work when disturb color
 
