@@ -23,8 +23,9 @@ class ColorScope {
             this.scope['chroma_scope'] = [55, 80];
         }
         else {
-            this.scope['lumi_scope'] = [40, 85];
-            this.scope['chroma_scope'] = [40, 85];
+            // the same with the previous setting
+            this.scope['lumi_scope'] = [50, 85];
+            this.scope['chroma_scope'] = [50, 85];
         }
     }
 
