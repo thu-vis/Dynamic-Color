@@ -4,8 +4,8 @@ var utils = require('./lib/utils.js');
 // tips: 40 for original visualization, 50 for lighter environment
 const colorscope = {
     'hue_scope': [0, 360],
-    'chroma_scope': [50, 85],
-    'lumi_scope': [50, 85],
+    'chroma_scope': [40, 85],
+    'lumi_scope': [40, 85],
     'all_hue': false,
 };
 
