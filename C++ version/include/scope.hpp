@@ -20,7 +20,9 @@ public:
     double chroma_scope[2];
     double lumi_scope[2];
     bool all_hue = false;
-    double margin = 5.0; // add margin to avoid overflow
+    double margin = 5.0; // add margin to avoid overflow in disturb
+    // we often found color overflow range when in boundary (when hcl to rgb)
+    // so we add margin which only work when disturb color
 
     Scope() noexcept
     {
@@ -92,12 +94,12 @@ inline Color disturbColorInScope(const Color &color, const Scope &scope, const d
     }
 
     // remove square [85, 114]
-    if (h > 84 && h < 115)
+    if (h > 84 - margin && h < 115 + margin)
     {
         if (h < 99.5)
-            h = 84;
+            h = 84 - margin;
         else
-            h = 115;
+            h = 115 + margin;
     }
 
     // ToDo: personal perference

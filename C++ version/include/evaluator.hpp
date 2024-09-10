@@ -38,13 +38,6 @@ public:
             // use start two score to normlize these two items
             data_args[0] = min(fabs(floor2(pair_harmony_score)), 1.0);
             data_args[1] = min(fabs(floor2(data_score)), 1.0);
-            if (total_data->mode == Data::DrivenMode::similarity)
-            {
-                // performance is better when similarity with larger args
-                // but of course, it's also ok to set it to 1.0
-                data_args[1] *= 3.0;
-                // data_args[1] *= 1.0;
-            }
         }
     }
 
