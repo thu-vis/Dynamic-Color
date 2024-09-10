@@ -158,9 +158,10 @@ function modifyColorInColorRange(color, base_color, range, hue_min = 0, hue_max 
         let h = hcl.h + (hcl_base.h - hcl.h) * ratio;
         let c = hcl.c + (hcl_base.c - hcl.c) * ratio;
         let l = hcl.l + (hcl_base.l - hcl.l) * ratio;
-        color = d3.hcl(h, c, l);
+        hcl = d3.hcl(h, c, l);
         dis = cdist(color, base_color);
     }
+    color = hcl;
     if (Math.abs(hue_max - hue_min) > 1e-5) {
         if ((hue_max > hue_min && (hcl.h < hue_min || hcl.h > hue_max)) ||
             (hue_max < hue_min && hcl.h > hue_max && hcl.h < hue_min)) {
