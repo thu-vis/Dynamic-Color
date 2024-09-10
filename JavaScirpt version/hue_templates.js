@@ -2,6 +2,7 @@
 // matsuda_templates: Matsuda et al. 2012
 // geometric_hue_templates: geometric hue harmony
 
+// important tip: matsuda templates use hsl hue, while geometric templates use hcl hue
 var _norm_h = function (value) {
     return (value % 360 + 360) % 360;
 };

@@ -1,17 +1,20 @@
 var d3 = require("./lib/d3.v7.min.js");
 var utils = require('./lib/utils.js');
 
+// tips: 40 for original visualization, 50 for lighter environment
 const colorscope = {
     'hue_scope': [0, 360],
-    'chroma_scope': [40, 85],
-    'lumi_scope': [40, 85],
+    'chroma_scope': [50, 85],
+    'lumi_scope': [50, 85],
     'all_hue': false,
 };
 
+// color scope to control the color range and disturb colors
 class ColorScope {
     constructor(scope = colorscope) {
         this.scope = scope;
         this.randf = utils.randomDouble;
+        this.margin = 5;
     }
 
     setMode(center = false) {
@@ -41,9 +44,9 @@ class ColorScope {
         // randf: random function, randg: random scope [3]
         let hcl = d3.hcl(color);
         let hue = hcl.h;
-        let chroma = this.randf(Math.max(Math.round(hcl.c - randg[1]), this.scope['chroma_scope'][0]),
+        let chroma = this.randf(Math.max(Math.round(hcl.c - randg[1]), this.scope['chroma_scope'][0] + this.margin),
             Math.min(Math.round(hcl.c + randg[1]), this.scope['chroma_scope'][1]));
-        let lumi = this.randf(Math.max(Math.round(hcl.l - randg[2]), this.scope['lumi_scope'][0]),
+        let lumi = this.randf(Math.max(Math.round(hcl.l - randg[2]), this.scope['lumi_scope'][0] + this.margin),
             Math.min(Math.round(hcl.l + randg[2]), this.scope['lumi_scope'][1]));
 
         if (this.scope['all_hue']) {

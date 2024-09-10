@@ -200,6 +200,7 @@ function modifyColorInConstraint(color, base_id, base_colors) {
 }
 
 // ------------ prepare for color harmony--------------------------------
+// matsuda templates use hsl hue
 const templates = new matsuda_templates();
 function template_score(colors) {
     let hues = colors.map(d => d3.hsl(d).h);
